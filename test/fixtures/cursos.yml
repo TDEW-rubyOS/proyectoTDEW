@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  formula: MyString
+  cantpcs: 1
+  exafinal: false
+  proyecto: false
+
+two:
+  nombre: MyString
+  formula: MyString
+  cantpcs: 1
+  exafinal: false
+  proyecto: false
