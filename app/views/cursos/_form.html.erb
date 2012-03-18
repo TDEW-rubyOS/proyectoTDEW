@@ -12,26 +12,26 @@
   <% end %>    
 
   <div class="field">
-    <%= f.label :nombre %><br />
+    Nombre: </br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :formula %><br />
+    Fórmula: </br>
     <%= f.text_field :formula %>
   </div>
   <div class="field">
-    <%= f.label :cantpcs %><br />
+    Cantidad de PCs: </br>
     <%= f.number_field :cantpcs %>
   </div>
   <div class="field">
-    <%= f.label :exafinal %><br />
+    Examen final: </br>
     <%= f.check_box :exafinal %>
   </div>
   <div class="field">
-    <%= f.label :proyecto %><br />
+    Proyecto: </br>
     <%= f.check_box :proyecto %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Grabar Curso" %>
   </div>
 <% end %>
