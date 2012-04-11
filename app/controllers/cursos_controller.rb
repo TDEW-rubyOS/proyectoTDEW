@@ -80,4 +80,13 @@ class CursosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+    def resultado
+    @cursos = Curso.all
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @curso }
+    end
+  end
 end

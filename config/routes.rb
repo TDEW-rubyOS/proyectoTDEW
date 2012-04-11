@@ -1,6 +1,8 @@
 TDEW2012::Application.routes.draw do
+  
   resources :cursos
-
+  root :to => 'cursos#index'
+  match "resultado" => "cursos#resultado"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,43 @@
+  <div class="ui-body ui-body-b">
+	  <div data-role="fieldcontain">
+	   <label for="basic">Curso:</label>
+	    <%= collection_select(:nombre, :id, Curso.all, :id, :nombre)  %>
+	    <select name="za" data-placeholder="true" data-native-menu="false">
+	    	<option value="1"  >za</option>
+	    	<option value="2" >za2</option>
+	    </select>
+	  </div>
+	   
+	     
+	   <div data-role="fieldcontain">
+	   	 <label for="basic">Nota PC1:</label>
+	     <input type="text" name="pc1" id="basic" value="" />  
+	   </div>
+
+	   <div data-role="fieldcontain">
+	   	 <label for="basic">Nota PC2:</label>
+	     <input type="text" name="pc2" id="basic" value="" />  
+	   </div>
+
+	    <div data-role="fieldcontain">
+	   	 <label for="basic">Nota PC3:</label>
+	     <input type="text" name="pc3" id="basic" value="" />  
+	   </div>
+
+	    <div data-role="fieldcontain">
+	   	 <label for="basic">Participacion:</label>
+	     <input type="text" name="participacion" id="basic" value="" />  
+	   </div>
+
+	    <div data-role="fieldcontain">
+	   	 <label for="basic">Proyecto Final:</label>
+	     <input type="text" name="proyectoFinal" id="basic" value="" />  
+	   </div>
+	     <div data-role="fieldcontain">
+	   	  <label for="basic"></label>
+	    <button type="submit" data-theme="b" name="submit" value="submit-value" data-inline="true">Calcular</button>  
+
+	   </div>
+
+	  </div>
+</div>
