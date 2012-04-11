@@ -1,0 +1,105 @@
+  
+
+
+<script type"text/javascript">
+	
+	$(document).ready(function(){
+
+		/*$("#select_curso").change(function () {
+      		$("#resultado").attr("action","/resultado/"+this.value);      		
+      		$("#resultado").submit();       			
+        });*/		
+
+		$("#boton").click(function(){				
+			/*var cursoFormula  = $("#select_curso").val();
+			var elementos = cursoFormula.split("+");
+			var promedio = 0.0;
+			var faltante = 0;
+			var notaNecesaria =0;
+			for (var i = 0; i< elementos.length;i++){
+     			var elementoTemp =  elementos[i].split("%");	        	
+	        	var nomInput = "input#" + elementoTemp[1];	     
+	        	var nota  = $(nomInput).val();	
+	        	var porcentaje = elementoTemp[0]/100;	
+	        	promedio = promedio +  (nota*porcentaje);
+	        	promedio = Math.round(promedio*100)/100;
+	        	
+	        	if (elementoTemp[1]=="TF"){
+	        		faltante = 12.5 - promedio;
+	        		if(faltante > 0)
+	        		{
+	        			notaNecesaria = faltante/porcentaje;
+	        			notaNecesaria = Math.round(notaNecesaria*100)/100;
+	        			
+	        		}
+	        	}
+			}
+			
+			alert("termino promedio : " + promedio);
+			alert("te falta : " + notaNecesaria)*/
+			$("#resultado").attr("action","/resultado");      		
+    		$("#resultado").submit();  
+		});
+
+	});
+
+  function seleccionarCurso(){  	
+  	$("#resultado").attr("action","/ingresar_notas/"+$("#select_curso").val());      		
+    $("#resultado").submit();  
+  }
+
+</script>
+
+<form accept-charset="UTF-8" action="/ingresar_notas" id="resultado" method="post">
+	<%if @curso != nil%>
+		<input type="hidden" value="<%=@curso.formula%>" id="formula" name="formula"/>
+	<%end %>
+	<%if @curso == nil%>
+		<input type="hidden" value="" id="formula" name="formula"/>
+	<%end%>
+
+		 <div id="divSelect" data-role="fieldcontain">
+		   <label for="select_curso">Curso:</label>
+		    
+		    <select id="select_curso" data-native-menu="false" onchange="seleccionarCurso()">
+		    	<option >Escoger curso</option>
+		    <%@cursos.each do |c| 
+		    	if @curso != nil  && c.id == @curso.id		    		
+		    		%>
+		    			<option value="<%=c.id%>" selected><%=c.nombre%></option>
+		    		<%
+		    	else
+		    	%>
+		    		<option value="<%=c.id%>"><%=c.nombre%></option>
+		    	<%
+		    	end	
+		  	end
+		     %>	
+		    </select>
+		 </div>
+	   
+	   <%
+		    if @curso != nil
+			    cursoFormula = @curso.formula
+				#cursoFormula = "15%PC1+15%PC2+20%TP+20%PA+30%TF"			
+				elementos = cursoFormula.split("+")
+				for i in 0..elementos.length
+					if elementos[i]
+			        	elementoTemp =  elementos[i].split("%")			        	
+		        		%>
+		        	    <div id="div<%=elementoTemp[1]%>" data-role="fieldcontain" >
+					     	<label for="<%=elementoTemp[1]%>"><%=elementoTemp[1]%></label>
+					     	<input type="text" name="<%=elementoTemp[1]%>" id="<%=elementoTemp[1]%>" value="" />
+					     </div>
+		        		<%			        	
+			    	end
+				end
+		    end
+		%>
+<div data-role="fieldcontain">
+   	 <label for="calcular"></label>
+     	<input type="button" value="Calcular" data-inline="true" id="boton"/>
+ 	</div>
+ </form>
+
+

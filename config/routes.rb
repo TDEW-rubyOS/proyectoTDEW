@@ -1,8 +1,12 @@
 TDEW2012::Application.routes.draw do
-  
   resources :cursos
-  root :to => 'cursos#index'
+  root :to => 'cursos#ingresar_notas'
+  #match "resultados" => "cursos#resultado"
+  match "ingresar_notas/:id" => "cursos#ingresar_notas"  
   match "resultado" => "cursos#resultado"
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
