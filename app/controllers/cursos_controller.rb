@@ -65,6 +65,7 @@ class CursosController < ApplicationController
   def update
     @curso = Curso.find(params[:id])
 
+
     respond_to do |format|
       if @curso.update_attributes(params[:curso])
         format.html { redirect_to @curso, notice: 'Curso was successfully updated.' }
@@ -91,9 +92,6 @@ class CursosController < ApplicationController
   def ingresar_notas       
       if params[:id]
         @curso = Curso.find(params[:id])
-        puts "holaaa" +@curso.formula
-      #else
-       # @curso = Curso.find(1)
       end
       @cursos = Curso.all
 
@@ -105,7 +103,6 @@ class CursosController < ApplicationController
 
   def resultado
       cursoFormula = params[:formula]
-      puts "FORMULA2 "+ cursoFormula
       elementos = cursoFormula.split('+')
       promedio = 0.0
       faltante = 0
@@ -130,6 +127,7 @@ class CursosController < ApplicationController
       respond_to do |format|
         format.html # show.html.erb        
       end
+
   end
 
 
@@ -139,5 +137,7 @@ class CursosController < ApplicationController
           id == USER_ID && password == PASSWORD
       end
    end
+
+  
 
 end

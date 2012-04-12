@@ -1,7 +1,16 @@
 <%= form_for(@curso) do |f| %>
-  <% if @curso.errors.any? %>
+  <% if @curso.errors.any? 
+    cantidadErrores = @curso.errors.count
+     mensajeError=""
+    if cantidadErrores ==1 
+      mensajeError = "Se presentó " + cantidadErrores.to_s+ " error al grabar el curso."
+    else
+      mensajeError = "Se presentaron " + cantidadErrores.to_s+ " errrores al grabar el curso."
+    end
+    %>
+     
     <div id="error_explanation">
-      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
+      <h2><%= mensajeError %> </h2>
 
       <ul>
       <% @curso.errors.full_messages.each do |msg| %>
