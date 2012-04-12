@@ -1,6 +1,27 @@
+<script type"text/javascript">
+  $(document).ready(function(){
+    $("a.new").click(function(){
+      $("form.new_curso").submit();  
+    });
+    $("a.cancel").click(function(){
+      window.location = "/cursos";
+    });
+  });
+</script>
 <% content_for :header do%>
-<h1>Registrar Curso</h1>
+	<div data-role="header" data-position="inline">
+		<a href="#" class="cancel" data-icon="delete" data-theme="b">Cancelar</a>
+		<h1>Registrar Curso</h1>
+		<a href="#" class="new" data-icon="check" data-theme="b">Save</a>
+	</div>
 <%end%>
-<%= render 'form' %>
-
-<%= link_to 'Volver', cursos_path %>
+<%= form_for(@curso) do |f| %>
+	<div class="field">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :nombre %>
+    </div>
+    <div class="field">
+    <%= f.label :formula %><br />
+    <%= f.text_field :formula %>
+  </div>
+<% end %>

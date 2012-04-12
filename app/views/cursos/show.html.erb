@@ -1,4 +1,21 @@
-<p id="notice"><%= notice %></p>
+<script type"text/javascript">
+  $(document).ready(function(){
+    $("a.back").click(function(){
+      window.location = "/cursos";
+    });
+    $("a.edit").click(function(){
+      var id=$(this).attr("rel");
+      window.location = "/cursos/"+id+"/edit";
+    });
+  });
+</script>
+<% content_for :header do%>
+	<div data-role="header" data-position="inline">
+		<a href="#" class="back" data-icon="home" data-theme="b">Inicio</a>
+		<h1><%= notice %></h1>
+		<a href="#" class="edit" rel="<%=@curso.id%>" data-icon="edit" data-theme="b">Editar</a>
+	</div>
+<%end%>
 
 <p>
   <b>Nombre:</b>

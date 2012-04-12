@@ -1,16 +1,7 @@
 <%= form_for(@curso) do |f| %>
-  <% if @curso.errors.any? 
-    cantidadErrores = @curso.errors.count
-     mensajeError=""
-    if cantidadErrores ==1 
-      mensajeError = "Se presentó " + cantidadErrores.to_s+ " error al grabar el curso."
-    else
-      mensajeError = "Se presentaron " + cantidadErrores.to_s+ " errrores al grabar el curso."
-    end
-    %>
-     
+  <% if @curso.errors.any? %>
     <div id="error_explanation">
-      <h2><%= mensajeError %> </h2>
+      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
 
       <ul>
       <% @curso.errors.full_messages.each do |msg| %>
@@ -21,13 +12,9 @@
   <% end %>    
 
   <div class="field">
-    <!--<div data-role="fieldcontain" class="ui-hide-label">-->
       <%= f.label :nombre %><br />
       <%= f.text_field :nombre %>
-      <!--<label for="nombreCurso"><%= f.label :nombre %></label>
-      <input type="text" name="nombreCurso" id="nombreCurso" placeholder="Nombre del Curso"/>
-    </div>-->
-  </div>
+      </div>
   <div class="field">
     <%= f.label :formula %><br />
     <%= f.text_field :formula %>

@@ -1,28 +1,26 @@
+<script type"text/javascript">
+  $(document).ready(function(){
+    $("a.linked").click(function(){
+      var id=$(this).attr("rel");
+      window.location = "/cursos/"+id+"/edit";
+    });
+    $("a.ui-btn-right").click(function(){
+      window.location = "/cursos/new";
+    });
+  });
+</script>
 <% content_for :header do%>
-<h1>Listado de cursos</h1>
+  <div data-role="header" data-position="inline">
+    <h1>Listado de cursos</h1>
+    <a href="#" class="ui-btn-right" data-icon="check" data-theme="b">Nuevo</a>
+  </div>
 <%end%>
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Formula</th>
-
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cursos.each do |curso| %>
-  <tr>
-    <td><%= curso.nombre %></td>
-    <td><%= curso.formula %></td>
-
-    <td><%= link_to 'Mostrar', curso %></td>
-    <td><%= link_to 'Modificar', edit_curso_path(curso) %></td>
-    <td><%= link_to 'Eliminar', curso, confirm: '¿Esta seguro de eliminar este curso?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'Nuevo curso', new_curso_path %>
+<div data-role="content">
+  <div class="content-primary"> 
+    <ul data-role="listview" data-filter="true">
+      <% @cursos.each do |curso| %>
+        <li><a href="#" id="link1" class="linked" rel="<%=curso.id%>"><%= curso.nombre %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

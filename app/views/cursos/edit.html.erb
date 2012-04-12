@@ -1,8 +1,29 @@
+<script type"text/javascript">
+  $(document).ready(function(){
+    $("a.save").click(function(){
+      var id=$(this).attr("rel");
+      $("form.edit_curso").submit();  
+    });
+    $("a.cancel").click(function(){
+      window.location = "/cursos";
+    });
+  });
+</script>
 <% content_for :header do%>
-<h1>Modificar curso</h1>
+	<div data-role="header" data-position="inline">
+		<a href="#" class="cancel" data-icon="delete" data-theme="b">Cancelar</a>
+		<h1>Modificar curso</h1>
+		<a href="#" class="save" rel="<%=@curso.id%>" data-icon="check" data-theme="b">Save</a>
+	</div>
 <%end%>
 
-<%= render 'form' %>
-
-<%= link_to 'Mostrar', @curso %> |
-<%= link_to 'Volver', cursos_path %>
+<%= form_for(@curso) do |f| %>
+	<div class="field">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :nombre %>
+    </div>
+    <div class="field">
+    <%= f.label :formula %><br />
+    <%= f.text_field :formula %>
+  </div>
+<% end %>
