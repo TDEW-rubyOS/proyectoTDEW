@@ -2,9 +2,15 @@
 
 
 <script type"text/javascript">
-	
+	var camposForm=new Array();
 	$(document).ready(function(){
 
+		for (var i=0;i<camposForm.length;i++){
+			var nombreCampo = "div#"+"div"+camposForm[i];
+			//alert(nombreCampo);
+			$(nombreCampo).slideDown("slow");	
+		}
+		
 		/*$("#select_curso").change(function () {
       		$("#resultado").attr("action","/resultado/"+this.value);      		
       		$("#resultado").submit();       			
@@ -49,7 +55,6 @@
   }
 
 </script>
-
 <form accept-charset="UTF-8" action="/ingresar_notas" id="resultado" method="post">
 	<%if @curso != nil%>
 		<input type="hidden" value="<%=@curso.formula%>" id="formula" name="formula"/>
@@ -87,10 +92,13 @@
 					if elementos[i]
 			        	elementoTemp =  elementos[i].split("%")			        	
 		        		%>
-		        	    <div id="div<%=elementoTemp[1]%>" data-role="fieldcontain" >
+		        	    <div style="display:none" id="div<%=elementoTemp[1]%>" data-role="fieldcontain" >
 					     	<label for="<%=elementoTemp[1]%>"><%=elementoTemp[1]%></label>
 					     	<input type="text" name="<%=elementoTemp[1]%>" id="<%=elementoTemp[1]%>" value="" />
 					     </div>
+					     <script type"text/javascript">
+					        camposForm[<%=i%>] = "<%=elementoTemp[1]%>" ;
+					     </script>
 		        		<%			        	
 			    	end
 				end %>
@@ -102,5 +110,4 @@
 		%>
 
  </form>
-
 
