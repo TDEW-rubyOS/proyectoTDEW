@@ -1,1 +1,12 @@
-NOTA FINAL <%=@notaNecesaria%>
+<% content_for :header do%>
+<h1>NOTA PARA<br/>APROBAR</h1>
+<%end%>
+<center>
+<h1><%=@notaNecesaria%></h1>
+</center>
+<form accept-charset="UTF-8" action="/ingresar_notas" id="resultado" method="post">
+	<div data-role="fieldcontain">
+   	 <label for="calcular"></label>
+     	<%=link_to "Nuevo Cálculo", root_path%>
+ 	</div>
+</form>
