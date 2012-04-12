@@ -105,31 +105,31 @@ class CursosController < ApplicationController
 
   def resultado
       cursoFormula = params[:formula]
-     
-      elementos = cursoFormula.split("+")
+      puts "FORMULA2 "+ cursoFormula
+      cursoFormula.replace("+",",")
+      elementos = cursoFormula.split(',')
+      puts "ARREGLO "+elementos.length
       promedio = 0.0
       faltante = 0
       @notaNecesaria =0
-      for i in 0..elementos.length
-      
-            elementoTemp =  elementos[i].to_s.split("%")                        
-            #puts "ARREGLO "+elementoTemp[0] + ", " +elementoTemp[1]
-            nota  = params[elementoTemp[1]]
-            porcentaje = elementoTemp[0]/100
-            promedio = promedio +  (nota*porcentaje)
-            promedio = promedio.round(2)
+      for i in 0..elementos.length      
+          
+            #elementoTemp =  elementos[i].to_s.split("%")                        
             
-            if elementoTemp[1] == "TF"
-              faltante = 12.5 - promedio
-              if faltante > 0
+            #nota  = params[elementoTemp[1]]
+            #porcentaje = elementoTemp[0]/100
+            #promedio = promedio +  (nota*porcentaje)
+            #promedio = promedio.round(2)
+            
+            #inif elementoTemp[1] == "TF"
+            #  faltante = 12.5 - promedio
+            #  if faltante > 0
               
-                @notaNecesaria = faltante/porcentaje
-                @notaNecesaria = @notaNecesaria.round(2)
-              end
-            end
-            
+            #    @notaNecesaria = faltante/porcentaje
+            #    @notaNecesaria = @notaNecesaria.round(2)
+            #  end
+            #end            
       end
-
       respond_to do |format|
         format.html # show.html.erb        
       end

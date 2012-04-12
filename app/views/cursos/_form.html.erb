@@ -12,26 +12,19 @@
   <% end %>    
 
   <div class="field">
-    Nombre: </br>
-    <%= f.text_field :nombre %>
+    <!--<div data-role="fieldcontain" class="ui-hide-label">-->
+      <%= f.label :nombre %><br />
+      <%= f.text_field :nombre %>
+      <!--<label for="nombreCurso"><%= f.label :nombre %></label>
+      <input type="text" name="nombreCurso" id="nombreCurso" placeholder="Nombre del Curso"/>
+    </div>-->
   </div>
   <div class="field">
-    Fórmula: </br>
+    <%= f.label :formula %><br />
     <%= f.text_field :formula %>
   </div>
-  <div class="field">
-    Cantidad de PCs: </br>
-    <%= f.number_field :cantpcs %>
-  </div>
-  <div class="field">
-    Examen final: </br>
-    <%= f.check_box :exafinal %>
-  </div>
-  <div class="field">
-    Proyecto: </br>
-    <%= f.check_box :proyecto %>
-  </div>
+  
   <div class="actions">
-    <%= f.submit "Grabar Curso" %>
+    <%= f.submit %>
   </div>
 <% end %>

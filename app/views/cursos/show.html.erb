@@ -10,21 +10,5 @@
   <%= @curso.formula %>
 </p>
 
-<p>
-  <b>Cantidad de pcs:</b>
-  <%= @curso.cantpcs %>
-</p>
-
-<p>
-  <b>Examen final:</b>
-  <%= @curso.exafinal %>
-</p>
-
-<p>
-  <b>Proyecto:</b>
-  <%= @curso.proyecto %>
-</p>
-
-
-<%= link_to 'Editar', edit_curso_path(@curso) %> |
-<%= link_to 'Volver', cursos_path %>
+<%= link_to 'Edit', edit_curso_path(@curso) %> |
+<%= link_to 'Back', cursos_path %>

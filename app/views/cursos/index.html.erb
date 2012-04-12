@@ -1,12 +1,11 @@
-<h1>Listado de Cursos</h1>
-
+<% content_for :header do%>
+<h1>Listado de cursos</h1>
+<%end%>
 <table>
   <tr>
     <th>Nombre</th>
     <th>Formula</th>
-    <th>Cantidad de PCs</th>
-    <th>Examen final</th>
-    <th>Proyecto</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -16,16 +15,14 @@
   <tr>
     <td><%= curso.nombre %></td>
     <td><%= curso.formula %></td>
-    <td><%= curso.cantpcs %></td>
-    <td><%= curso.exafinal %></td>
-    <td><%= curso.proyecto %></td>
-    <td><%= link_to 'Ver', curso %></td>
-    <td><%= link_to 'Editar', edit_curso_path(curso) %></td>
-    <td><%= link_to 'Eliminar', curso, confirm: 'Estas seguro?', method: :delete %></td>
+
+    <td><%= link_to 'Mostrar', curso %></td>
+    <td><%= link_to 'Modificar', edit_curso_path(curso) %></td>
+    <td><%= link_to 'Eliminar', curso, confirm: '¿Esta seguro de eliminar este curso?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Agregar Curso', new_curso_path %>
+<%= link_to 'Nuevo curso', new_curso_path %>
