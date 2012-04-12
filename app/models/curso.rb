@@ -30,7 +30,7 @@ class Curso < ActiveRecord::Base
     else
       errors.add(:formula," no llega al 100%.") 
 
-     # raise "ERROR PS MUY TARDE"
+     
       return false
     end
 
